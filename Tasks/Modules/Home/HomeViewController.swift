@@ -11,6 +11,7 @@ class HomeViewController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.register(UINib(nibName: "MyTodoViewCell", bundle: nil), forCellReuseIdentifier: MyTodoViewCell.cellIdentifier)
     }
 
     // MARK: - Table view data source
@@ -26,6 +27,8 @@ class HomeViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: MyTodoViewCell.cellIdentifier, for: indexPath) as! MyTodoViewCell
+        cell.setup(model: TodoModel())
+        return cell
     }
 }
