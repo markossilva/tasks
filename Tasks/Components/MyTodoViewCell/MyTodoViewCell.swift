@@ -21,6 +21,6 @@ class MyTodoViewCell: UITableViewCell {
 }
 
 struct TodoModel {
-    let title: String = "Minha tarefa"
-    let legend: String = "tarefa cadastrada a 2 min atrás"
+    let title: String = ""
+    let legend: String = ""
 }

@@ -8,6 +8,8 @@
 import UIKit
 
 class HomeViewController: UITableViewController {
+    
+    var tasks: [TodoModel]?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,20 +17,21 @@ class HomeViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 5
+        return tasks?.count ?? 1
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: MyTodoViewCell.cellIdentifier, for: indexPath) as! MyTodoViewCell
-        cell.setup(model: TodoModel())
+        
+        if let item = tasks?[indexPath.row] {
+            cell.setup(model: item)
+        } else {
+            cell.setup(model: TodoModel())
+            cell.textLabel?.text = "No items added"
+        }
+        
         return cell
     }
 }
