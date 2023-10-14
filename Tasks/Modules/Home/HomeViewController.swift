@@ -34,4 +34,12 @@ class HomeViewController: UITableViewController {
         
         return cell
     }
+    
+    // MARK: - Table view delegates
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.reloadData()
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func deleteItem(at index: Int) {}
 }
