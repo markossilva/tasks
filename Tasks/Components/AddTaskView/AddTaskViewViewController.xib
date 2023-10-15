@@ -11,6 +11,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddTaskViewViewController" customModule="Tasks" customModuleProvider="target">
             <connections>
+                <outlet property="contentView" destination="hjW-Hv-wpH" id="ogG-Ep-EH6"/>
+                <outlet property="contentViewBottomConstraint" destination="hbP-Wo-i6t" id="f7F-q1-PBH"/>
+                <outlet property="contentViewHeight" destination="uB9-7b-tsr" id="SWT-vB-JdD"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +32,9 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hjW-Hv-wpH">
                     <rect key="frame" x="0.0" y="59" width="393" height="593"/>
                     <color key="backgroundColor" systemColor="systemGrayColor"/>
+                    <connections>
+                        <outletCollection property="gestureRecognizers" destination="zPa-PI-DIN" appends="YES" id="tMG-Jb-K35"/>
+                    </connections>
                 </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="KWg-UA-pPS"/>
@@ -45,6 +51,11 @@
             </constraints>
             <point key="canvasLocation" x="-45" y="20"/>
         </view>
+        <tapGestureRecognizer id="zPa-PI-DIN">
+            <connections>
+                <action selector="topViewTap:" destination="-1" id="12q-LK-4nA"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">

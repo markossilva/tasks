@@ -14,6 +14,9 @@ class HomeViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MyTodoViewCell", bundle: nil), forCellReuseIdentifier: MyTodoViewCell.cellIdentifier)
+        
+        let bottomSheetVC = AddTaskViewViewController(viewModel: AddTaskViewModel(),childViewController: UIViewController())
+        presentBottomSheet(bottomSheetVC, completion: nil)
     }
 
     // MARK: - Table view data source
