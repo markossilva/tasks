@@ -7,28 +7,28 @@
 
 import UIKit
 
-public protocol AddTaskPresentable {
+public protocol TaskBottomSheetPresentable {
     var cornerRadius: CGFloat { get set}
     var animationTransitionDuration: TimeInterval { get set }
     var backgroundColor: UIColor { get set }
 }
 
-class AddTaskViewViewController: UIViewController {
+class TaskBottomSheetViewController: UIViewController {
     
     // MARK: - Outlets
     @IBOutlet weak private var contentView: UIView!
     @IBOutlet weak private var contentViewBottomConstraint: NSLayoutConstraint!
     @IBOutlet weak private var contentViewHeight: NSLayoutConstraint!
     
-    private let viewModel: AddTaskPresentable
+    private let viewModel: TaskBottomSheetPresentable
     private let childViewController: UIViewController
     private var originBeforeAnimation: CGRect = .zero
     
     // MARK: - Initialization
-    public init(viewModel: AddTaskPresentable, childViewController: UIViewController) {
+    public init(viewModel: TaskBottomSheetPresentable, childViewController: UIViewController) {
         self.viewModel = viewModel
         self.childViewController = childViewController
-        super.init(nibName: String(describing: AddTaskViewViewController.self), bundle: Bundle(for: AddTaskViewViewController.self))
+        super.init(nibName: String(describing: TaskBottomSheetViewController.self), bundle: Bundle(for: TaskBottomSheetViewController.self))
         modalPresentationStyle = .overFullScreen
         modalTransitionStyle = .crossDissolve
     }
@@ -39,7 +39,7 @@ class AddTaskViewViewController: UIViewController {
 }
 
 // MARK: - Lifecycle
-extension AddTaskViewViewController {
+extension TaskBottomSheetViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         contentView.alpha = 1
@@ -78,7 +78,7 @@ extension AddTaskViewViewController {
 }
 
 // MARK: - Public Methods
-extension AddTaskViewViewController {
+extension TaskBottomSheetViewController {
     func dismissViewController() {
         contentViewBottomConstraint.constant = -childViewController.view.frame.height
         UIView.animate(withDuration: viewModel.animationTransitionDuration, animations: {
@@ -91,7 +91,7 @@ extension AddTaskViewViewController {
 }
 
 // MARK: - Private Methods
-private extension AddTaskViewViewController {
+private extension TaskBottomSheetViewController {
     
     private func configureChild() {
         addChild(childViewController)
@@ -139,7 +139,7 @@ private extension AddTaskViewViewController {
 }
 
 // MARK: - Event handling
-extension AddTaskViewViewController: UIGestureRecognizerDelegate {
+extension TaskBottomSheetViewController: UIGestureRecognizerDelegate {
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return false
     }

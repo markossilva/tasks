@@ -53,7 +53,7 @@ public extension UIView {
 // MARK: - UIViewController
 //--------------------------------------------------
 extension UIViewController {
-    func presentBottomSheet(_ bottomSheet: AddTaskViewViewController, completion: (() -> Void)?) {
+    func presentBottomSheet(_ bottomSheet: TaskBottomSheetViewController, completion: (() -> Void)?) {
         self.present(bottomSheet, animated: false, completion: completion)
     }
 }

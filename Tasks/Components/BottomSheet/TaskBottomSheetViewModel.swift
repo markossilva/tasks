@@ -7,7 +7,7 @@
 
 import UIKit
 
-public struct AddTaskViewModel: AddTaskPresentable {
+public struct TaskBottomSheetViewModel: TaskBottomSheetPresentable {
     public var cornerRadius: CGFloat
     
     public var animationTransitionDuration: TimeInterval

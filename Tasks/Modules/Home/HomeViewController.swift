@@ -15,7 +15,7 @@ class HomeViewController: UITableViewController {
         super.viewDidLoad()
         tableView.register(UINib(nibName: "MyTodoViewCell", bundle: nil), forCellReuseIdentifier: MyTodoViewCell.cellIdentifier)
         
-        let bottomSheetVC = AddTaskViewViewController(viewModel: AddTaskViewModel(),childViewController: UIViewController())
+        let bottomSheetVC = TaskBottomSheetViewController(viewModel: TaskBottomSheetViewModel(),childViewController: UIViewController())
         presentBottomSheet(bottomSheetVC, completion: nil)
     }
 
